@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>PROJET</title>
+</head>
+<body>
+    <div class="container">
+    <div class="container-onglets">
+        <div class="onglets active" data-anim="1">CSS</div>
+        <div class="onglets" data-anim="2">DOM</div>
+        <div class="onglets" data-anim="3">JavaScript</div>
+        <div class="onglets" data-anim="4">Non Script</div>
+    </div> 
+
+    <div class="contenu" data-anim="1">
+        <h3>CSS TAB</h3>
+        <p>About the cascading Style Sheet format.</p>
+        <img src="client.png"height="85"width="100"/>
+    </div>
+
+    <div class="contenu " data-anim="2">
+        <h3>DOM:Document Object Model;est une intrface de programmation normalisée par le W3C qui permet à des scripts d'examiner et de modifier le contenu du navigateur web</h3>
+       <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam porro voluptate vel, ut atque quae? Voluptatum. </p>
+    </div>
+
+    <div class="contenu " data-anim="3">
+        <h3>JavaScript est un langage de programmation de scripts principalement employé dans les pages web interactives et à ce titre est une partie essentielle des applications web. Avec les langages HTML et CSS, JavaScript est au cœur des langages utilisés par les développeurs web.</h3>
+        <img src="tof.jpg"height="60"width="100"/>
+    </div>
+
+    <div class="contenu " data-anim="4">
+        <h3> NoScript est une extension libre et open source pour Mozilla Firefox, SeaMonkey, Flock et autres navigateurs basés sur Mozilla. NoScript permet de bloquer les scripts JavaScript, Java, Flash et autres plugins des sites qui ne font pas partie de la liste blanche définie par l'utilisateur.</h3>
+        <hr>
+        <p>Merci</p>
+    </div>
+
+    </div>
+    <script>
+      const onglets=document.querySelectorAll('.onglets');
+const contenu=document.querySelectorAll('.contenu');
+let index=0;
+onglets.forEach(onglet=>{
+    onglet.addEventListener('click',()=>{
+        if(onglet.classList.contains('active')){
+            return;
+        }else{
+            onglet.classList.add('active');
+        }
+        index=onglet.getAttribute('data-anim');
+        console.log(index);
+        for(i=0;i<onglets.length;i++){
+            if(onglets[i].getAttribute('data-anim')!=index){
+                onglets[i].classList.remove('active');
+            }
+        }
+        for (j=0;j<contenu.length;j++){
+            if(contenu[j].getAttribute('data-anim')==index){
+                contenu[j].classList.add('activecontenu');
+
+            }else{
+                contenu[j].classList.remove('activecontenu');
+            }
+        }
+    })
+
+})  
+    </script>
+</body>
+</html>
